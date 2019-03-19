@@ -36,7 +36,18 @@ class ProbabilityTest {
         Probability probability2 = new Probability(0.5);
 
         Probability expected = new Probability(0.25);
-        Probability actual = probability1.not(probability2);
+        Probability actual = probability1.and(probability2);
+
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    void shouldCalculateProbabilityOfAtLeastOne() throws InvalidProbabilityException {
+        Probability probability1 = new Probability(0.5);
+        Probability probability2 = new Probability(0.5);
+
+        Probability expected = new Probability(0.75);
+        Probability actual = probability1.or(probability2);
 
         assertEquals(expected, actual);
     }

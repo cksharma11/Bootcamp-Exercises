@@ -1,5 +1,7 @@
 package com.bootcamp.probability;
 
+import java.util.Objects;
+
 public class Probability {
     private static final int LOWER_BOUND = 0;
     private static final int UPPER_BOUND = 1;
@@ -28,7 +30,12 @@ public class Probability {
         return Double.compare(that.value, value) == 0;
     }
 
-    Probability not(Probability anotherProbability) throws InvalidProbabilityException {
+    Probability and(Probability anotherProbability) throws InvalidProbabilityException {
          return new Probability(this.value * anotherProbability.value);
+    }
+
+    Probability or(Probability anotherProbability) throws InvalidProbabilityException {
+        Probability and = this.and(anotherProbability);
+        return  and.not();
     }
 }
