@@ -1,7 +1,5 @@
 package com.bootcamp.probability;
 
-import java.util.Objects;
-
 public class Probability {
     private static final int LOWER_BOUND = 0;
     private static final int UPPER_BOUND = 1;
@@ -18,7 +16,7 @@ public class Probability {
         }
     }
 
-    Probability calculateImprobability() throws InvalidProbabilityException {
+    Probability not() throws InvalidProbabilityException {
         return new Probability(UPPER_BOUND - this.value);
     }
 
@@ -28,5 +26,9 @@ public class Probability {
         if (probability == null || getClass() != probability.getClass()) return false;
         Probability that = (Probability) probability;
         return Double.compare(that.value, value) == 0;
+    }
+
+    Probability not(Probability anotherProbability) throws InvalidProbabilityException {
+         return new Probability(this.value * anotherProbability.value);
     }
 }

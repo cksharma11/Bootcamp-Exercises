@@ -25,6 +25,19 @@ class ProbabilityTest {
     void shouldCalculateImprobability() throws InvalidProbabilityException {
         Probability probability = new Probability(0.6);
         Probability expected = new Probability(0.4);
-        assertEquals(expected, probability.calculateImprobability());
+        Probability actual = probability.not();
+
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    void shouldCalculateCombinedProbability() throws InvalidProbabilityException {
+        Probability probability1 = new Probability(0.5);
+        Probability probability2 = new Probability(0.5);
+
+        Probability expected = new Probability(0.25);
+        Probability actual = probability1.not(probability2);
+
+        assertEquals(expected, actual);
     }
 }
