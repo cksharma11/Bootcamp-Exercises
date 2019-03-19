@@ -1,6 +1,7 @@
 package com.step.shape;
 
 public class Square implements Shape{
+    public static final int NUMBER_OF_SIDES = 4;
     private final Dimension side;
 
     Square(Dimension side) {
@@ -14,6 +15,6 @@ public class Square implements Shape{
 
     @Override
     public double calculatePerimeter() {
-        return 4 * this.side.getValue();
+        return NUMBER_OF_SIDES * this.side.getValue();
     }
 }
