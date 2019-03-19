@@ -7,23 +7,24 @@ import static org.junit.jupiter.api.Assertions.*;
 class ProbabilityTest {
 
     @Test
-    void createProbabilityWithValidInput() {
-        try {
-            new Probability(0.5D);
-        } catch (InvalidProbabilityException e) {
-            fail("Should not throw exception");
-        }
-
+    void shouldNotThrowsExceptionForValidValue() {
+        assertDoesNotThrow(() -> new Probability(0.5D));
     }
 
+    @Test
+    void shouldThrowsExceptionForValueOutOfLowerBound() {
+        assertThrows(InvalidProbabilityException.class, () -> new Probability(-1.5D));
+    }
 
     @Test
-    void createProbabilityWithInValidInput() {
-        try {
-            new Probability(1.5D);
-            fail("Should throw exception");
-        } catch (InvalidProbabilityException ignored) {
-        }
+    void shouldThrowsExceptionForValueOutOfUpperBound() {
+        assertThrows(InvalidProbabilityException.class, () -> new Probability(1.5D));
+    }
 
+    @Test
+    void shouldReturnProbabilityOfNotGetting() throws InvalidProbabilityException {
+        Probability probability = new Probability(0.6);
+        Probability expected = new Probability(0.4);
+        assertEquals(expected, probability.calculateImprobability());
     }
 }
