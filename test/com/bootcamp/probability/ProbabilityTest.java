@@ -22,7 +22,7 @@ class ProbabilityTest {
     }
 
     @Test
-    void shouldReturnProbabilityOfNotGetting() throws InvalidProbabilityException {
+    void shouldCalculateImprobability() throws InvalidProbabilityException {
         Probability probability = new Probability(0.6);
         Probability expected = new Probability(0.4);
         assertEquals(expected, probability.calculateImprobability());
