@@ -13,7 +13,9 @@ class Quantity {
 
     @Override
     public boolean equals(Object o) {
+        if(!(o instanceof Quantity)) return false;
         Quantity quantity = (Quantity) o;
+        if(!(this.unit.isSameType(quantity.unit))) return false;
         BigDecimal firstValue = this.unit.toBaseValue(this.value);
         BigDecimal secondValue = quantity.unit.toBaseValue(quantity.value);
         return firstValue.equals(secondValue);

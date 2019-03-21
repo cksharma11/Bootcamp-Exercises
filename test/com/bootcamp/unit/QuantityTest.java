@@ -55,4 +55,19 @@ class QuantityTest {
         Quantity tenMM = new Quantity(new BigDecimal(10), Unit.MILLIMETER);
         assertNotEquals(twoCM, tenMM);
     }
+
+    @Test
+    void assertOneGallonEqualsThreePointSevenEightLiters() {
+        Quantity oneGallon = new Quantity(new BigDecimal(1), Unit.GALLON);
+        Quantity threePointSevenEightLiter = new Quantity(new BigDecimal(3.78), Unit.LITER);
+        assertEquals(oneGallon, threePointSevenEightLiter);
+    }
+
+
+    @Test
+    void assertOneGallonDoesNotEqualsThreeLiters() {
+        Quantity oneGallon = new Quantity(new BigDecimal(1), Unit.GALLON);
+        Quantity threeLiter = new Quantity(new BigDecimal(3), Unit.LITER);
+        assertNotEquals(oneGallon, threeLiter);
+    }
 }
