@@ -70,4 +70,14 @@ class QuantityTest {
         Quantity threeLiter = new Quantity(new BigDecimal(3), Unit.LITER);
         assertNotEquals(oneGallon, threeLiter);
     }
+
+    @Test
+    void shouldAddTwoQuantitiesOfSameUnit() {
+        Quantity twoInches = new Quantity(new BigDecimal(2), Unit.INCH);
+        Quantity oneInch = new Quantity(new BigDecimal(1), Unit.INCH);
+
+        Quantity expected = new Quantity(new BigDecimal(3), Unit.INCH);
+        Quantity actual = twoInches.add(oneInch);
+        assertEquals(expected, actual);
+    }
 }
