@@ -11,17 +11,20 @@ class Quantity {
         this.unit = unit;
     }
 
-    Quantity add(Quantity quantity){
-        return new Quantity(this.value.add(quantity.value),this.unit);
+    Quantity add(Quantity quantity) {
+        BigDecimal baseValue = this.unit.toBaseValue(this.value);
+        BigDecimal otherBaseValue = quantity.unit.toBaseValue(quantity.value);
+        BigDecimal resultInch = (baseValue.add(otherBaseValue)).divide(new BigDecimal(25));
+        return new Quantity(resultInch, Unit.INCH);
     }
 
     @Override
     public boolean equals(Object o) {
-        if(!(o instanceof Quantity)) return false;
+        if (!(o instanceof Quantity)) return false;
         Quantity quantity = (Quantity) o;
-        if(!(this.unit.isSameType(quantity.unit))) return false;
+        if (!(this.unit.isSameType(quantity.unit))) return false;
         BigDecimal firstValue = this.unit.toBaseValue(this.value);
         BigDecimal secondValue = quantity.unit.toBaseValue(quantity.value);
-        return firstValue.equals(secondValue);
+        return firstValue.intValue() == secondValue.intValue();
     }
 }

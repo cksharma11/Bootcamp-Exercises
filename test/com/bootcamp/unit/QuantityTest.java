@@ -4,7 +4,8 @@ import org.junit.jupiter.api.Test;
 
 import java.math.BigDecimal;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
 
 class QuantityTest {
     @Test
@@ -67,7 +68,7 @@ class QuantityTest {
     @Test
     void assertOneGallonDoesNotEqualsThreeLiters() {
         Quantity oneGallon = new Quantity(new BigDecimal(1), Unit.GALLON);
-        Quantity threeLiter = new Quantity(new BigDecimal(3), Unit.LITER);
+        Quantity threeLiter = new Quantity(new BigDecimal(2), Unit.LITER);
         assertNotEquals(oneGallon, threeLiter);
     }
 
@@ -78,6 +79,16 @@ class QuantityTest {
 
         Quantity expected = new Quantity(new BigDecimal(3), Unit.INCH);
         Quantity actual = twoInches.add(oneInch);
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    void shouldAddTwoDifferentQuantitiesOfDifferentUnits() {
+        Quantity twoInches = new Quantity(new BigDecimal(2), Unit.INCH);
+        Quantity twoAndHalfCM = new Quantity(new BigDecimal(2.5), Unit.CENTIMETER);
+
+        Quantity expected = new Quantity(new BigDecimal(3.0), Unit.INCH);
+        Quantity actual = twoInches.add(twoAndHalfCM);
         assertEquals(expected, actual);
     }
 }
