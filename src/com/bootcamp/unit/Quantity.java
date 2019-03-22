@@ -1,6 +1,7 @@
 package com.bootcamp.unit;
 
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 
 class Quantity {
     private BigDecimal value;
@@ -14,8 +15,8 @@ class Quantity {
     Quantity add(Quantity quantity) {
         BigDecimal baseValue = this.unit.toBaseValue(this.value);
         BigDecimal otherBaseValue = quantity.unit.toBaseValue(quantity.value);
-        BigDecimal resultInch = (baseValue.add(otherBaseValue)).divide(new BigDecimal(25));
-        return new Quantity(resultInch, Unit.INCH);
+        BigDecimal result = (baseValue.add(otherBaseValue));
+        return new Quantity(result, this.unit.getStandardUnit());
     }
 
     @Override
@@ -25,6 +26,7 @@ class Quantity {
         if (!(this.unit.isSameType(quantity.unit))) return false;
         BigDecimal firstValue = this.unit.toBaseValue(this.value);
         BigDecimal secondValue = quantity.unit.toBaseValue(quantity.value);
-        return firstValue.intValue() == secondValue.intValue();
+        return firstValue.setScale(2, RoundingMode.FLOOR).
+                equals(secondValue.setScale(2, RoundingMode.FLOOR));
     }
 }

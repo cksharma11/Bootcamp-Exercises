@@ -68,7 +68,7 @@ class QuantityTest {
     @Test
     void assertOneGallonDoesNotEqualsThreeLiters() {
         Quantity oneGallon = new Quantity(new BigDecimal(1), Unit.GALLON);
-        Quantity threeLiter = new Quantity(new BigDecimal(2), Unit.LITER);
+        Quantity threeLiter = new Quantity(new BigDecimal(3), Unit.LITER);
         assertNotEquals(oneGallon, threeLiter);
     }
 
@@ -89,6 +89,16 @@ class QuantityTest {
 
         Quantity expected = new Quantity(new BigDecimal(3.0), Unit.INCH);
         Quantity actual = twoInches.add(twoAndHalfCM);
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    void shouldAddTwoDifferentQuantitiesOfDifferentUnitsOfVolume() {
+        Quantity oneGallon = new Quantity(new BigDecimal(1), Unit.GALLON);
+        Quantity oneLiter = new Quantity(new BigDecimal(1), Unit.LITER);
+
+        Quantity expected = new Quantity(new BigDecimal(4.779), Unit.LITER);
+        Quantity actual = oneGallon.add(oneLiter);
         assertEquals(expected, actual);
     }
 }
