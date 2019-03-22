@@ -101,4 +101,12 @@ class QuantityTest {
         Quantity actual = oneGallon.add(oneLiter);
         assertEquals(expected, actual);
     }
+
+    @Test
+    void shouldCompareTemperatureInCelsiusAndFahrenheit() {
+        Quantity hundredCelsius = new Quantity(new BigDecimal(100),Unit.CELSIUS);
+        Quantity twoHundredAndTwelveFahrenheit = new Quantity(new BigDecimal(212), Unit.FAHRENHEIT);
+
+        assertEquals(hundredCelsius, twoHundredAndTwelveFahrenheit);
+    }
 }
