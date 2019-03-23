@@ -14,10 +14,10 @@ class Toppings {
         this.toppings.add(topping);
     }
 
-    double calculateTotalPrice(){
-        double totalPrice = 0;
+    Price calculateTotalPrice(){
+        Price totalPrice = new Price(0);
         for (ToppingTypes topping : this.toppings){
-            totalPrice += topping.getPrice();
+            totalPrice = totalPrice.add(topping.getPrice());
         }
         return totalPrice;
     }

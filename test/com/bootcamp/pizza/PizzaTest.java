@@ -10,14 +10,14 @@ class PizzaTest {
     void shouldCalculatePriceOfPizzaWithoutToppings() {
         Pizza pizza = new Pizza();
 
-        assertEquals(50, pizza.calculateTotalPrice());
+        assertEquals(new Price(50), pizza.calculateTotalPrice());
     }
 
     @Test
     void shouldCalculatePriceOfPizzaWithToppings() {
         Pizza pizza = new Pizza();
-        pizza.addTopping(ToppingTypes.CHICKEN);
+        pizza.addTopping(ToppingTypes.CHICKEN).addTopping(ToppingTypes.EXTRA_CHEESE);
 
-        assertEquals(80, pizza.calculateTotalPrice());
+        assertEquals(new Price(105), pizza.calculateTotalPrice());
     }
 }

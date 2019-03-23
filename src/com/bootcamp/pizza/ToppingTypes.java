@@ -1,20 +1,20 @@
 package com.bootcamp.pizza;
 
 enum ToppingTypes {
-    VEGETABLE(20D),
-    CHICKEN(30D),
-    MOZZARELLA(10D),
-    TOMATO_SAUCE(5D),
-    EXTRA_CHEESE(25D),
-    JALAPENO(40D);
+    VEGETABLE(new Price(20)),
+    CHICKEN(new Price(30)),
+    MOZZARELLA(new Price(10)),
+    TOMATO_SAUCE(new Price(5)),
+    EXTRA_CHEESE(new Price(25)),
+    JALAPENO(new Price(40));
 
-    private Double price;
+    private Price price;
 
-    ToppingTypes(Double price){
+    ToppingTypes(Price price){
         this.price = price;
     }
 
-    Double getPrice(){
+    Price getPrice(){
         return this.price;
     }
 }
