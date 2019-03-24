@@ -51,4 +51,17 @@ class MatrixOperationsTest {
         assertEquals(resultedMatrix, actual);
     }
 
+    @Test
+    void shouldMultiplyMatrix() {
+        Matrix matrixOperations = new Matrix(matrix);
+        List<List<Integer>> resultedMatrix = new ArrayList<>();
+        resultedMatrix.add(Arrays.asList(6, 12, 18));
+        resultedMatrix.add(Arrays.asList(6, 12, 18));
+        resultedMatrix.add(Arrays.asList(6, 12, 18));
+
+        List<List<Integer>> actual = matrixOperations.mul(otherMatrix);
+
+        assertEquals(resultedMatrix, actual);
+    }
+
 }

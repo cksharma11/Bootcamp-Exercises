@@ -25,7 +25,7 @@ class Matrix {
     List<List<Integer>> sub(List<List<Integer>> otherMatrix) {
         return this.performOperation(otherMatrix, subtractElements);
     }
-    
+
     private List<List<Integer>> performOperation(List<List<Integer>> otherMatrix, MatrixOperation operation) {
         List<List<Integer>> resultedMatrix = new ArrayList<>();
         for (int row = 0; row < this.matrix.size(); row++) {
@@ -35,6 +35,23 @@ class Matrix {
                 resultRow.add(resultedElement);
             }
             resultedMatrix.addAll(Arrays.asList(resultRow));
+        }
+        return resultedMatrix;
+    }
+
+    List<List<Integer>> mul(List<List<Integer>> otherMatrix) {
+        List<List<Integer>> resultedMatrix = new ArrayList<>();
+
+        for (int i = 0; i < this.matrix.size(); i++) {
+            List<Integer> resultRow = new ArrayList<>();
+            for (int row = 0; row < this.matrix.size(); row++) {
+                int sumOfMultiplication = 0;
+                for (int column = 0; column < otherMatrix.size(); column++) {
+                    sumOfMultiplication += (this.matrix.get(row).get(column) * otherMatrix.get(column).get(row));
+                }
+                resultRow.add(sumOfMultiplication);
+            }
+            resultedMatrix.add(resultRow);
         }
         return resultedMatrix;
     }
