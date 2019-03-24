@@ -9,7 +9,7 @@ import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-class MatrixOperationsTest {
+class MatrixTest {
     private List<List<Integer>> matrix = new ArrayList<>();
     private List<List<Integer>> otherMatrix = new ArrayList<>();
 
@@ -48,7 +48,7 @@ class MatrixOperationsTest {
         resultedMatrix.add(Arrays.asList(0, 0, 0));
 
         Matrix expected = new Matrix(resultedMatrix);
-        Matrix actual = matrixOperations.sub(new Matrix(otherMatrix));
+        Matrix actual = matrixOperations.subtract(new Matrix(otherMatrix));
 
         assertEquals(expected, actual);
     }
@@ -62,7 +62,7 @@ class MatrixOperationsTest {
         resultedMatrix.add(Arrays.asList(6, 12, 18));
 
         Matrix expected = new Matrix(resultedMatrix);
-        Matrix actual = matrixOperations.mul(new Matrix(otherMatrix));
+        Matrix actual = matrixOperations.multiply(new Matrix(otherMatrix));
 
         assertEquals(expected, actual);
     }
@@ -84,7 +84,7 @@ class MatrixOperationsTest {
 
         Matrix matrix = new Matrix(matrixToMultiply);
         Matrix expected = new Matrix(resultedMatrix);
-        Matrix actual = matrix.mul(new Matrix(matrixToMultiply2));
+        Matrix actual = matrix.multiply(new Matrix(matrixToMultiply2));
 
         assertEquals(expected, actual);
     }

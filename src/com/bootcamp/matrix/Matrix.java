@@ -23,7 +23,7 @@ class Matrix {
         return this.performOperation(otherMatrix, addElements);
     }
 
-    Matrix sub(Matrix otherMatrix) {
+    Matrix subtract(Matrix otherMatrix) {
         return this.performOperation(otherMatrix, subtractElements);
     }
 
@@ -41,7 +41,7 @@ class Matrix {
         return resultedMatrix;
     }
 
-    Matrix mul(Matrix otherMatrix) {
+    Matrix multiply(Matrix otherMatrix) {
         List<List<Integer>> list = new ArrayList<>();
         Matrix resultedMatrix = new Matrix(list);
 
