@@ -33,9 +33,10 @@ class MatrixOperationsTest {
         resultedMatrix.add(Arrays.asList(2, 4, 6));
         resultedMatrix.add(Arrays.asList(2, 4, 6));
 
-        List<List<Integer>> actual = matrixOperations.add(otherMatrix);
+        Matrix expected = new Matrix(resultedMatrix);
+        Matrix actual = matrixOperations.add(new Matrix(otherMatrix));
 
-        assertEquals(resultedMatrix, actual);
+        assertEquals(expected, actual);
     }
 
     @Test
@@ -46,9 +47,10 @@ class MatrixOperationsTest {
         resultedMatrix.add(Arrays.asList(0, 0, 0));
         resultedMatrix.add(Arrays.asList(0, 0, 0));
 
-        List<List<Integer>> actual = matrixOperations.sub(otherMatrix);
+        Matrix expected = new Matrix(resultedMatrix);
+        Matrix actual = matrixOperations.sub(new Matrix(otherMatrix));
 
-        assertEquals(resultedMatrix, actual);
+        assertEquals(expected, actual);
     }
 
     @Test
@@ -59,9 +61,10 @@ class MatrixOperationsTest {
         resultedMatrix.add(Arrays.asList(6, 12, 18));
         resultedMatrix.add(Arrays.asList(6, 12, 18));
 
-        List<List<Integer>> actual = matrixOperations.mul(otherMatrix);
+        Matrix expected = new Matrix(resultedMatrix);
+        Matrix actual = matrixOperations.mul(new Matrix(otherMatrix));
 
-        assertEquals(resultedMatrix, actual);
+        assertEquals(expected, actual);
     }
 
     @Test
@@ -80,9 +83,10 @@ class MatrixOperationsTest {
         resultedMatrix.add(Arrays.asList(139, 154));
 
         Matrix matrix = new Matrix(matrixToMultiply);
-        List<List<Integer>> actual = matrix.mul(matrixToMultiply2);
+        Matrix expected = new Matrix(resultedMatrix);
+        Matrix actual = matrix.mul(new Matrix(matrixToMultiply2));
 
-        assertEquals(resultedMatrix, actual);
+        assertEquals(expected, actual);
     }
 
     @Test
@@ -94,9 +98,10 @@ class MatrixOperationsTest {
         resultedMatrix.add(Arrays.asList(2,2,2));
         resultedMatrix.add(Arrays.asList(3,3,3));
 
-        List<List<Integer>> actual = matrix.transpose();
+        Matrix expected = new Matrix(resultedMatrix);
+        Matrix actual = matrix.transpose();
 
-        assertEquals(resultedMatrix, actual);
+        assertEquals(expected, actual);
     }
 
     @Test
@@ -112,8 +117,9 @@ class MatrixOperationsTest {
         resultedMatrix.add(Arrays.asList(1,2,3));
         resultedMatrix.add(Arrays.asList(1,2,3));
 
-        List<List<Integer>> actual = matrix.transpose();
+        Matrix expected = new Matrix(resultedMatrix);
+        Matrix actual = matrix.transpose();
 
-        assertEquals(resultedMatrix, actual);
+        assertEquals(expected, actual);
     }
 }
