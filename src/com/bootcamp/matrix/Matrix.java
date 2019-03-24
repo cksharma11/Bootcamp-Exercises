@@ -55,4 +55,17 @@ class Matrix {
         }
         return resultedMatrix;
     }
+
+    List<List<Integer>> transpose() {
+        List<List<Integer>> resultedMatrix = new ArrayList<>();
+
+        for (int row = 0; row < this.matrix.get(0).size(); row++) {
+            List<Integer> resultRow = new ArrayList<>();
+            for (List<Integer> rowElements : this.matrix) {
+                resultRow.add(rowElements.get(row));
+            }
+            resultedMatrix.add(resultRow);
+        }
+        return resultedMatrix;
+    }
 }

@@ -85,4 +85,35 @@ class MatrixOperationsTest {
         assertEquals(resultedMatrix, actual);
     }
 
+    @Test
+    void shouldTransposeTheMatrix() {
+        Matrix matrix = new Matrix(this.matrix);
+
+        List<List<Integer>> resultedMatrix = new ArrayList<>();
+        resultedMatrix.add(Arrays.asList(1,1,1));
+        resultedMatrix.add(Arrays.asList(2,2,2));
+        resultedMatrix.add(Arrays.asList(3,3,3));
+
+        List<List<Integer>> actual = matrix.transpose();
+
+        assertEquals(resultedMatrix, actual);
+    }
+
+    @Test
+    void shouldTransposeNonSquareMatrix() {
+        List<List<Integer>> nonSquareMatrix = new ArrayList<>();
+        nonSquareMatrix.add(Arrays.asList(1,1));
+        nonSquareMatrix.add(Arrays.asList(2,2));
+        nonSquareMatrix.add(Arrays.asList(3,3));
+
+        Matrix matrix = new Matrix(nonSquareMatrix);
+
+        List<List<Integer>> resultedMatrix = new ArrayList<>();
+        resultedMatrix.add(Arrays.asList(1,2,3));
+        resultedMatrix.add(Arrays.asList(1,2,3));
+
+        List<List<Integer>> actual = matrix.transpose();
+
+        assertEquals(resultedMatrix, actual);
+    }
 }
