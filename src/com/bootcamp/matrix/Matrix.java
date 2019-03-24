@@ -42,12 +42,12 @@ class Matrix {
     List<List<Integer>> mul(List<List<Integer>> otherMatrix) {
         List<List<Integer>> resultedMatrix = new ArrayList<>();
 
-        for (int i = 0; i < this.matrix.size(); i++) {
+        for (int index = 0; index < this.matrix.size(); index++) {
             List<Integer> resultRow = new ArrayList<>();
             for (int row = 0; row < this.matrix.size(); row++) {
                 int sumOfMultiplication = 0;
                 for (int column = 0; column < otherMatrix.size(); column++) {
-                    sumOfMultiplication += (this.matrix.get(row).get(column) * otherMatrix.get(column).get(row));
+                    sumOfMultiplication += (this.matrix.get(index).get(column) * otherMatrix.get(column).get(row));
                 }
                 resultRow.add(sumOfMultiplication);
             }

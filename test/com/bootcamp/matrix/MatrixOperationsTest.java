@@ -64,4 +64,25 @@ class MatrixOperationsTest {
         assertEquals(resultedMatrix, actual);
     }
 
+    @Test
+    void shouldMultiplyDifferentSizeMatrix() {
+        List<List<Integer>> matrixToMultiply = new ArrayList<>();
+        matrixToMultiply.add(Arrays.asList(1,2,3));
+        matrixToMultiply.add(Arrays.asList(4,5,6));
+
+        List<List<Integer>> matrixToMultiply2 = new ArrayList<>();
+        matrixToMultiply2.add(Arrays.asList(7,8));
+        matrixToMultiply2.add(Arrays.asList(9,10));
+        matrixToMultiply2.add(Arrays.asList(11,12));
+
+        List<List<Integer>> resultedMatrix = new ArrayList<>();
+        resultedMatrix.add(Arrays.asList(58, 64));
+        resultedMatrix.add(Arrays.asList(139, 154));
+
+        Matrix matrix = new Matrix(matrixToMultiply);
+        List<List<Integer>> actual = matrix.mul(matrixToMultiply2);
+
+        assertEquals(resultedMatrix, actual);
+    }
+
 }
