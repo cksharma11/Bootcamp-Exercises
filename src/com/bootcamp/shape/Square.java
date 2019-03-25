@@ -1,4 +1,4 @@
-package com.step.shape;
+package com.bootcamp.shape;
 
 public class Square implements Shape{
     public static final int NUMBER_OF_SIDES = 4;

@@ -1,4 +1,4 @@
-package com.step.shape;
+package com.bootcamp.shape;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;

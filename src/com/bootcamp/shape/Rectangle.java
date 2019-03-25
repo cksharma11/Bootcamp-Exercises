@@ -1,4 +1,4 @@
-package com.step.shape;
+package com.bootcamp.shape;
 
 public class Rectangle implements Shape{
     private Dimension width;
