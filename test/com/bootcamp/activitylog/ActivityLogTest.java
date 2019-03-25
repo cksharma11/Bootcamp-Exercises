@@ -1,5 +1,6 @@
 package com.bootcamp.activitylog;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
@@ -8,10 +9,16 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.*;
 
 class ActivityLogTest {
+
+    private ActivityLog activityLog;
+    @BeforeEach
+    void setUp() {
+        activityLog = new ActivityLog();
+
+    }
+
     @Test
     void shouldAddLog() {
-        ActivityLog activityLog = new ActivityLog();
-
         Log expected = new Log("first activity");
         Log actual = activityLog.addLog(new Log ("first activity"));
 
@@ -20,8 +27,6 @@ class ActivityLogTest {
 
     @Test
     void shouldReturnAllLogs() {
-        ActivityLog activityLog = new ActivityLog();
-
         activityLog.addLog(new Log("first activity"));
         activityLog.addLog(new Log("second activity"));
 

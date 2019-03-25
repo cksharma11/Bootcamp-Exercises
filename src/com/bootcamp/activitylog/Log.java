@@ -9,11 +9,16 @@ class Log {
 
     Log(String log) {
         this.log = log;
+        this.timeStamp = new Date();
     }
 
-    public Log(String log, Date timeStamp) {
-        this.log = log;
-        this.timeStamp = timeStamp;
+
+    @Override
+    public String toString() {
+        return "Log{" +
+                "log='" + log + '\'' +
+                ", timeStamp=" + timeStamp +
+                '}';
     }
 
     @Override
@@ -21,8 +26,7 @@ class Log {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Log log1 = (Log) o;
-        return Objects.equals(log, log1.log) &&
-                Objects.equals(timeStamp, log1.timeStamp);
+        return Objects.equals(log, log1.log);
     }
 
     @Override
