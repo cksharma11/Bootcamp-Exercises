@@ -41,12 +41,17 @@ class DeluxeBagTest {
     }
 
     @Test
-    void shouldNotAddYellowBallIfThereAre40PercentYellowBallInBag() {
-        deluxeBag.add(new Ball(Color.GREEN));
-        deluxeBag.add(new Ball(Color.GREEN));
+    void shouldAddYellowBallIfThereAreLessThan40PercentYellowBallInBag() {
+        deluxeBag.add(new Ball(Color.BLUE));
+        deluxeBag.add(new Ball(Color.BLUE));
+        deluxeBag.add(new Ball(Color.BLUE));
+        deluxeBag.add(new Ball(Color.BLUE));
 
-        deluxeBag.add(new Ball(Color.RED));
-        deluxeBag.add(new Ball(Color.RED));
+        assertTrue(deluxeBag.add(new Ball(Color.YELLOW)));
+    }
+
+    @Test
+    void shouldNotAddYellowBallIfThereAre40PercentYellowBallInBag() {
         deluxeBag.add(new Ball(Color.RED));
         deluxeBag.add(new Ball(Color.RED));
 
@@ -63,5 +68,14 @@ class DeluxeBagTest {
         }
 
         assertFalse(deluxeBag.add(new Ball(Color.BLUE)));
+    }
+
+    @Test
+    void shouldNotAddMoreThanTwoBlackBalls() {
+        deluxeBag.add(new Ball(Color.BLACK));
+        deluxeBag.add(new Ball(Color.BLACK));
+
+        assertFalse(deluxeBag.add(new Ball(Color.BLACK)));
+
     }
 }
