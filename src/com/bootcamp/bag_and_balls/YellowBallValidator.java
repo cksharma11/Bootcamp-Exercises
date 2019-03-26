@@ -1,4 +1,4 @@
-package com.bootcamp.probability1;
+package com.bootcamp.bag_and_balls;
 
 public class YellowBallValidator implements Validator {
     private int percentage;

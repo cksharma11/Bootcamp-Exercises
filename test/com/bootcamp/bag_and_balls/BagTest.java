@@ -1,4 +1,4 @@
-package com.bootcamp.probability1;
+package com.bootcamp.bag_and_balls;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
