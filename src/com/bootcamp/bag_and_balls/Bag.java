@@ -28,7 +28,8 @@ class Bag implements Countable{
             try {
                 return validator.validate(this);
             } catch (TooManyYellowBallException | InvalidRedGreenBallRatioException
-                    | TooManyGreenBallException | OutOfCapacityException e) {
+                    | TooManyGreenBallException | TooManyBlackBallException
+                    |OutOfCapacityException e) {
                 return false;
             }
         });
