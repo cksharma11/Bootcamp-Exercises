@@ -1,9 +1,6 @@
 package com.bootcamp.probability1;
 
-import java.util.HashMap;
-
 public class RedGreenRatioValidator implements Validator {
-
     private int ratio;
 
     RedGreenRatioValidator(int ratio) {
@@ -11,9 +8,11 @@ public class RedGreenRatioValidator implements Validator {
     }
 
     @Override
-    public boolean validate(HashMap<Color, Integer> ballCounts, Color ballColor) {
-        if (ballColor != Color.RED) return true;
-        ratio = 2;
-        return ballCounts.get(ballColor) < ballCounts.get(Color.GREEN) * ratio;
+    public boolean validate(Countable countable) throws InvalidRedGreenBallRatioException {
+        if(countable.getCountOf(Color.GREEN) * this.ratio == 0) return true;
+        if(countable.getCountOf(Color.RED) < countable.getCountOf(Color.GREEN) * this.ratio){
+            return true;
+        }
+        throw new InvalidRedGreenBallRatioException();
     }
 }
