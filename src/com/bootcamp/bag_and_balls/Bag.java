@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-class Bag implements Countable{
+class Bag implements Countable {
     private final int capacity;
     private HashMap<Color, Integer> ballCounts;
     private List<Ball> balls;
@@ -29,7 +29,7 @@ class Bag implements Countable{
                 return validator.validate(this);
             } catch (TooManyYellowBallException | InvalidRedGreenBallRatioException
                     | TooManyGreenBallException | TooManyBlackBallException
-                    |OutOfCapacityException e) {
+                    | OutOfCapacityException e) {
                 return false;
             }
         });
@@ -53,7 +53,7 @@ class Bag implements Countable{
     @Override
     public Integer getTotalCount() {
         int totalCount = 0;
-        for(Color color : ballCounts.keySet()) {
+        for (Color color : ballCounts.keySet()) {
             totalCount += ballCounts.get(color);
         }
         return totalCount;

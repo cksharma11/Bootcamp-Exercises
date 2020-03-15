@@ -9,7 +9,7 @@ public class CapacityValidator implements Validator {
 
     @Override
     public boolean validate(Countable countable) throws OutOfCapacityException {
-        if(countable.getTotalCount() < this.capacity) return true;
+        if (countable.getTotalCount() < this.capacity) return true;
         throw new OutOfCapacityException();
     }
 }

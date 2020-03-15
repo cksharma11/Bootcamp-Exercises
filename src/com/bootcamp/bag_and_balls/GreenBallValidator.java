@@ -9,7 +9,7 @@ public class GreenBallValidator implements Validator {
 
     @Override
     public boolean validate(Countable countable) throws TooManyGreenBallException {
-        if(countable.getCountOf(Color.GREEN) < maxLimit) return true;
+        if (countable.getCountOf(Color.GREEN) < maxLimit) return true;
         throw new TooManyGreenBallException();
     }
 }

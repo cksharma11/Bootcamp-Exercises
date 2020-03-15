@@ -8,11 +8,11 @@ public class Dimension {
         this.value = value;
     }
 
-    public double getValue(){
+    public double getValue() {
         return this.value;
     }
 
-    private void validateDimension(double value) throws InvalidDimension{
-        if(value < 0) throw new InvalidDimension("Invalid Value");
+    private void validateDimension(double value) throws InvalidDimension {
+        if (value < 0) throw new InvalidDimension("Invalid Value");
     }
 }

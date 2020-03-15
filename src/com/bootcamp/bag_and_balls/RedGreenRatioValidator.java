@@ -9,8 +9,8 @@ public class RedGreenRatioValidator implements Validator {
 
     @Override
     public boolean validate(Countable countable) throws InvalidRedGreenBallRatioException {
-        if(countable.getCountOf(Color.GREEN) * this.ratio == 0) return true;
-        if(countable.getCountOf(Color.RED) < countable.getCountOf(Color.GREEN) * this.ratio){
+        if (countable.getCountOf(Color.GREEN) * this.ratio == 0) return true;
+        if (countable.getCountOf(Color.RED) < countable.getCountOf(Color.GREEN) * this.ratio) {
             return true;
         }
         throw new InvalidRedGreenBallRatioException();

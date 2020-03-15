@@ -1,6 +1,6 @@
 package com.bootcamp.shape;
 
-public class Rectangle implements Shape{
+public class Rectangle implements Shape {
     private Dimension width;
     private Dimension height;
 

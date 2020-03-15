@@ -14,8 +14,8 @@ class Unit {
     static final Unit CENTIMETER = new Unit(new Ratio(new BigDecimal(0.4)), Unit.LENGTH);
 
     private static final Type TEMPERATURE = Type.TEMPERATURE;
-    static final Unit CELSIUS = new Unit(new ScaleAndRatio(new BigDecimal(32),new BigDecimal(1.8)),Unit.TEMPERATURE);
-    static final Unit FAHRENHEIT = new Unit(new ScaleAndRatio(new BigDecimal(0),new BigDecimal(1)),Unit.TEMPERATURE);
+    static final Unit CELSIUS = new Unit(new ScaleAndRatio(new BigDecimal(32), new BigDecimal(1.8)), Unit.TEMPERATURE);
+    static final Unit FAHRENHEIT = new Unit(new ScaleAndRatio(new BigDecimal(0), new BigDecimal(1)), Unit.TEMPERATURE);
 
     static final Unit GALLON = new Unit(new Ratio(new BigDecimal(3.78)), Unit.VOLUME);
     static final Unit LITER = new Unit(new Ratio(new BigDecimal(1)), Unit.VOLUME);
@@ -27,10 +27,10 @@ class Unit {
     static {
         standardUnits.put(LENGTH, INCH);
         standardUnits.put(VOLUME, LITER);
-        standardUnits.put(TEMPERATURE,CELSIUS);
+        standardUnits.put(TEMPERATURE, CELSIUS);
     }
 
-    private enum Type{
+    private enum Type {
         LENGTH,
         VOLUME,
         TEMPERATURE
@@ -45,11 +45,11 @@ class Unit {
         return this.ratio.convertToBaseValue(value);
     }
 
-    boolean isSameType(Unit unit){
+    boolean isSameType(Unit unit) {
         return unit.type.equals(this.type);
     }
 
-    Unit getStandardUnit(){
+    Unit getStandardUnit() {
         return standardUnits.get(this.type);
     }
 }

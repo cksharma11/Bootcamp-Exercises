@@ -8,8 +8,8 @@ public class BasicSalesTax implements Tax {
         this.taxPercentage = taxPercentage;
     }
 
-    static BasicSalesTax getInstance(){
-        if(instance == null){
+    static BasicSalesTax getInstance() {
+        if (instance == null) {
             return new BasicSalesTax(10);
         }
         return instance;

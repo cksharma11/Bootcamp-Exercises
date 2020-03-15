@@ -10,7 +10,7 @@ public class BlackBallValidator implements Validator {
 
     @Override
     public boolean validate(Countable countable) throws TooManyBlackBallException {
-        if(countable.getCountOf(Color.BLACK) < limit) return true;
+        if (countable.getCountOf(Color.BLACK) < limit) return true;
         throw new TooManyBlackBallException();
     }
 }

@@ -31,11 +31,11 @@ public class Probability {
     }
 
     Probability and(Probability anotherProbability) throws InvalidProbabilityException {
-         return new Probability(this.value * anotherProbability.value);
+        return new Probability(this.value * anotherProbability.value);
     }
 
     Probability or(Probability anotherProbability) throws InvalidProbabilityException {
         Probability and = this.and(anotherProbability);
-        return  and.not();
+        return and.not();
     }
 }

@@ -11,7 +11,7 @@ public class BottomPanel extends RefreshableContent {
     @Override
     public String refresh() {
         StringBuilder content = new StringBuilder("Refreshing BottomPanel");
-        this.children.forEach(child-> content.append(" " +child.refresh()));
+        this.children.forEach(child -> content.append(" " + child.refresh()));
         return String.valueOf(content);
     }
 }

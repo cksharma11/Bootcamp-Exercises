@@ -1,6 +1,6 @@
 package com.bootcamp.shape;
 
-public class Square implements Shape{
+public class Square implements Shape {
     public static final int NUMBER_OF_SIDES = 4;
     private final Dimension side;
 
@@ -10,7 +10,7 @@ public class Square implements Shape{
 
     @Override
     public double calculateArea() {
-        return this.side.getValue()*this.side.getValue();
+        return this.side.getValue() * this.side.getValue();
     }
 
     @Override

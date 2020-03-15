@@ -8,8 +8,8 @@ public class ImportDuty implements Tax {
         this.taxPercentage = taxPercentage;
     }
 
-    static ImportDuty getInstance(){
-        if(instance == null){
+    static ImportDuty getInstance() {
+        if (instance == null) {
             return new ImportDuty(5);
         }
         return instance;

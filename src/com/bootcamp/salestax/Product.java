@@ -13,7 +13,7 @@ class Product {
         this.taxes = taxes;
     }
 
-    double calculateTax(){
+    double calculateTax() {
         double taxAmount = 0;
         for (Tax tax : taxes) {
             taxAmount += tax.calculateTax(this.price);
